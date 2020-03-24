@@ -4,5 +4,5 @@ const total = 100;
 const ordered = 50;
 const orderNo = 'На складе недостаточно товаров!';
 const orderYes = 'Заказ оформлен, с вами свяжется менеджер';
-
-ordered > total ? console.log(orderNo) : console.log(orderYes);
+const message = ordered > total ? orderNo : orderYes;
+console.log(message);
