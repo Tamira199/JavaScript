@@ -34,7 +34,7 @@ class Car {
      */
 
     set price(price) {
-        return (this._price = price);
+        this._price = price;
     }
 
     get price() {
@@ -68,7 +68,7 @@ class Car {
      */
 
     accelerate(value) {
-        if (this.speed + value < this.maxSpeed) {
+        if (this.speed + value <= this.maxSpeed) {
             this.speed = this.speed + value;
         }
     }
@@ -79,7 +79,7 @@ class Car {
      */
 
     decelerate(value) {
-        if (this.speed - value > 0) {
+        if (this.speed - value >= 0) {
             this.speed = this.speed - value;
         }
     }
