@@ -1,0 +1,23 @@
+.image {
+    width: 200px;
+}
+
+.list {
+    list-style: none;
+}
+
+h3 {
+    color: blue;
+}
+
+#validation-input {
+    border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+    border-color: #4caf50;
+}
+
+#validation-input.invalid {
+    border-color: rgb(244, 67, 54);
+}
