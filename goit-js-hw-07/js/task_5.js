@@ -1,13 +1,8 @@
-const checkInput = document.getElementById('name-input');
-const checkOutput = document.getElementById('name-output');
-checkInput.addEventListener('input', inputText);
-let enteredName = '';
-
-function inputText() {
-    if (checkInput.value === checkInput.defaultValue) {
-        enteredName = 'Незнакомец';
-    } else {
-        enteredName = checkInput.value;
-    }
-    return (checkOutput.textContent = enteredName);
-}
+const input = document.querySelector('#name-input');
+const output = document.querySelector('#name-output');
+const textDefault = output.textContent;
+const getInputName = event => {
+    const inputValue = event.target.value;
+    output.textContent = !inputValue ? textDefault : inputValue;
+};
+input.addEventListener('input', getInputName);

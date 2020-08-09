@@ -1,9 +1,6 @@
-.image {
-    width: 200px;
-}
-
 .list {
     list-style: none;
+    display: flex;
 }
 
 h3 {

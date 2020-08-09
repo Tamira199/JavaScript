@@ -12,19 +12,11 @@ const images = [{
     },
 ];
 
-const list = document.getElementById('gallery');
-const newList = list.cloneNode(true);
-images.map(image => {
-    newList.insertAdjacentHTML(
-        'afterbegin',
-        `
-    <li>
-    <img src="${image.url}" alt="${image.alt}" class="image">
-  </li>`,
-    );
-    newList.style.display = 'flex';
-    newList.style.margin = '0 auto';
-    return newList;
-});
+const galleryItem = document.querySelector('#gallery');
 
-list.replaceWith(newList);
+const createGalleryItem = ({ url, alt }) =>
+    `<li><img style="width:200px" src="${url}" alt="${alt}"></li>`;
+
+const gallery = images.reduce((acc, item) => acc + createGalleryItem(item), '');
+
+galleryItem.insertAdjacentHTML('afterbegin', gallery);

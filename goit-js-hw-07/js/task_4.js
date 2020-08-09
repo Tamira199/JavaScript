@@ -1,17 +1,18 @@
-let counterValue = 0;
-const value = document.getElementById('value');
-const clickBlock = document.getElementById('counter');
-clickBlock.addEventListener('click', buttonClick);
+const increment = document.querySelector('button[data-action="increment"]');
+const decrement = document.querySelector('button[data-action="decrement"]');
+const span = document.querySelector('#value');
 
-function buttonClick(e) {
-    if (e.target === e.currentTarget || e.target.tagName === 'SPAN') {
-        return;
-    }
-    if (e.target.dataset.action === 'decrement') {
-        counterValue -= 1;
-    }
-    if (e.target.dataset.action === 'increment') {
-        counterValue += 1;
-    }
-    value.textContent = counterValue;
-}
+let counterValue = Number(span.textContent);
+
+const updateValue = value => {
+    counterValue = counterValue + value;
+    span.textContent = counterValue;
+};
+
+increment.addEventListener('click', () => {
+    updateValue(1);
+});
+
+decrement.addEventListener('click', () => {
+    updateValue(-1);
+});
