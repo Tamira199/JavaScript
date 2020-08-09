@@ -2,16 +2,26 @@ console.log('Task 6');
 
 let total = 0;
 let input;
-let inputNum = Number(input);
 const ENTER_NUMBER = 'Введите число';
+input = prompt(ENTER_NUMBER);
+let inputNum = Number(input);
 
-while (input !== Number) {
-    input = +(prompt(ENTER_NUMBER, '') * 10);
-    if (input === null) break;
-    if (!isNaN(inputNum)) {
-        alert(ENTER_NUMBER);
-    } else {
-        total += inputNum;
+if (isNaN(input)) {
+    alert('Введено не число, попробуйте еще раз');
+    input = prompt(ENTER_NUMBER);
+}
+
+while (input !== null) {
+    inputNum = Number(input);
+    total = total + inputNum;
+    input = prompt(ENTER_NUMBER);
+
+    if (isNaN(input)) {
+        alert('Введено не число, попробуйте еще раз');
+        input = prompt(ENTER_NUMBER);
+    }
+
+    if (input === null) {
+        alert(`Общая сумма чисел равна ${total}`);
     }
 }
-alert(`Общая сумма чисел равна ${total / 10}`);
